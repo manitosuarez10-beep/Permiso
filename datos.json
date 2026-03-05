@@ -10,9 +10,9 @@
   "mano": "Derecha",
   "peso": "3000 - 6000 kg",
   "zona": "Zona II"
-  "desde": "07/03/2026",
-  "hasta": "07/03/2026",
-  "horaini": "14:00:00",
-  "horafin": "19:00:00",
-  "notas": "",
+  "desde": "07",
+  "hasta": "03",
+  "horaini": "14:00",
+  "horafin": "19:00",
+  "notas": "No estacionar en ochava",
 }
