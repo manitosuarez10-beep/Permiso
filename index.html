@@ -204,6 +204,21 @@ fetch("datos.json")
 .then(data => {
 
 document.getElementById("numero").textContent = data.numero;
+document.getElementById("fecha").textContent = data.fechas;
+document.getElementById("solicitante").textContent = data.solicitante;
+document.getElementById("empresa").textContent = data.empresa;
+document.getElementById("domicilio").textContent = data.domicilio;
+document.getElementById("operaciones").textContent = data.operaciones;
+document.getElementById("dominio").textContent = data.dominio;
+document.getElementById("vehiculo").textContent = data.vehiculo;
+document.getElementById("mano").textContent = data.mano;
+document.getElementById("peso").textContent = data.peso;
+document.getElementById("zona").textContent = data.zona;
+document.getElementById("desde").textContent = data.desde;
+document.getElementById("hasta").textContent = data.hasta;
+document.getElementById("hora ini").textContent = data.horaini;
+document.getElementById("hora fin").textContent = data.horafin;  
+document.getElementById("notas").textContent = data.notas;
 
 });
 
@@ -211,6 +226,7 @@ document.getElementById("numero").textContent = data.numero;
   
 </body>
 </html>
+
 
 
 
