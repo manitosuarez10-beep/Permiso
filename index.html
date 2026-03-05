@@ -98,66 +98,21 @@ SMT
 
 <div class="container">
 
-
-<title>VALIDACION DE PERMISOS - VIA PUBLICA</title>
-
-<style>
-
-body{
-font-family: Arial;
-background:#f3f3f3;
-padding:20px;
-}
-
-.container{
-max-width:500px;
-margin:auto;
-}
-
-.estado{
-background:#2e7d32;
-color:white;
-text-align:center;
-padding:14px;
-border-radius:30px;
-font-weight:bold;
-font-size:18px;
-margin-bottom:20px;
-}
-
-.card{
-background:white;
-border-radius:10px;
-padding:18px;
-margin-bottom:12px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
-
-.label{
-color:#777;
-font-size:14px;
-}
-
-.value{
-font-size:20px;
-margin-top:4px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
+<div class="titulo">
+VALIDACION DE PERMISOS - VIA PUBLICA
+</div>
 
 <div class="estado">
 PERMISO VIGENTE
 </div>
 
 <div class="card">
+<div class="label">Permiso</div>
+</div>
+
+<div class="card">
 <div class="label">Nro. de Solicitud</div>
-<div class="value" id="numero"></div>
+<div class="value">86</div>
 </div>
 
 <div class="card">
@@ -170,80 +125,7 @@ PERMISO VIGENTE
 <div class="value">YA, MUDARTE</div>
 </div>
 
-<div class="card">
-<div class="label">Empresa</div>
-<div class="value">FLETES TUCUMAN</div>
 </div>
-
-<div class="card">
-<div class="label">Domicilio</div>
-<div class="value">CHACABUCO 600</div>
-</div>
-  
-<div class="card">
-<div class="label">Cant. Operaciones</div>
-<div class="value">1</div>
-</div>
-  
-<div class="card">
-<div class="label">Dominio</div>
-<div class="value">PCR 448</div>
-</div>
-  
-<div class="card">
-<div class="label">Vehiculo</div>
-<div class="value">APK 256</div>
-</div>
-  
-<div class="card">
-<div class="label">Mano</div>
-<div class="value">Derecha</div>
-</div>
-
-<div class="card">
-<div class="label">Peso</div>
-<div class="value">De 3000 kg Hasta 6000 kg</div>
-</div>
-
-<div class="card">
-<div class="label">Zona</div>
-<div class="value">Zona II</div>
-</div>
-
-<div class="card">
-<div class="label">Fecha Desde</div>
-<div class="value">07/03/2026</div>
-</div>
-  
-<div class="card">
-<div class="label">Fechas Hasta</div>
-<div class="value">07/03/2026</div>
-</div>
-
-<div class="card">
-<div class="label">Hora Desde</div>
-<div class="value">14:00:00</div>
-</div>
-  
-<div class="card">
-<div class="label">Hora Hasta</div>
-<div class="value">17:30:00</div>
-</div>
-  
-<script>
-
-const params = new URLSearchParams(window.location.search);
-const numero = params.get("nro");
-
-if(numero){
-document.getElementById("numero").textContent = numero;
-}else{
-document.getElementById("numero").textContent = "000";
-}
-
-</script>
 
 </body>
 </html>
-
-
