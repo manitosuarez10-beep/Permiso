@@ -117,7 +117,7 @@ PERMISO VIGENTE
 
 <div class="card">
 <div class="label">Nro. de Solicitud</div>
-<div class="value">86</div>
+<div class="value" id="numero"></div>
 </div>
 
 <div class="card">
@@ -196,9 +196,22 @@ PERMISO VIGENTE
 </div>
   
 </div>
+  
+<script>
 
+fetch("datos.json")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("numero").textContent = data.numero;
+
+});
+
+</script>
+  
 </body>
 </html>
+
 
 
 
