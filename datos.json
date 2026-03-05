@@ -1,5 +1,6 @@
 {
   "numero": "94",
+  "fecha": "05/03/2026",
   "solicitante": "YA, MUDARTE",
   "empresa": "Fletes Tucuman",
   "domicilio": "CHACABUCO 600",
@@ -9,4 +10,9 @@
   "mano": "Derecha",
   "peso": "3000 - 6000 kg",
   "zona": "Zona II"
+  "desde": "07/03/2026",
+  "hasta": "07/03/2026",
+  "hora ini": "14:00:00",
+  "hora fin": "19:00:00",
+  "notas": "",
 }
