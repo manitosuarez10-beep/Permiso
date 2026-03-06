@@ -228,13 +228,13 @@ PERMISO VIGENTE
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-if(id){
+if (id) {
   fetch("../permisos.json")
     .then(res => res.json())
     .then(data => {
       const permiso = data[id];
 
-      if(permiso){
+      if (permiso) {
         document.getElementById("numero").textContent = permiso.numero || "";
         document.getElementById("fecha").textContent = permiso.fecha || "";
         document.getElementById("solicitante").textContent = permiso.solicitante || "";
@@ -251,13 +251,19 @@ if(id){
         document.getElementById("horaini").textContent = permiso.horaini || "";
         document.getElementById("horafin").textContent = permiso.horafin || "";
         document.getElementById("notas").textContent = permiso.notas || "";
+      } else {
+        alert("Permiso no encontrado");
       }
+    })
+    .catch(() => {
+      alert("No se pudo cargar permisos.json");
     });
 }
 </script>
   
 </body>
 </html>
+
 
 
 
