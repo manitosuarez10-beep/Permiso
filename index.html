@@ -225,44 +225,48 @@ PERMISO VIGENTE
 </div>
   
 <script>
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-if (id) {
-  fetch("../permisos.json")
-    .then(res => res.json())
-    .then(data => {
-      const permiso = data[id];
+if(id){
 
-      if (permiso) {
-        document.getElementById("numero").textContent = permiso.numero || "";
-        document.getElementById("fecha").textContent = permiso.fecha || "";
-        document.getElementById("solicitante").textContent = permiso.solicitante || "";
-        document.getElementById("empresa").textContent = permiso.empresa || "";
-        document.getElementById("domicilio").textContent = permiso.domicilio || "";
-        document.getElementById("operaciones").textContent = permiso.operaciones || "";
-        document.getElementById("dominio").textContent = permiso.dominio || "";
-        document.getElementById("vehiculo").textContent = permiso.vehiculo || "";
-        document.getElementById("mano").textContent = permiso.mano || "";
-        document.getElementById("peso").textContent = permiso.peso || "";
-        document.getElementById("zona").textContent = permiso.zona || "";
-        document.getElementById("desde").textContent = permiso.desde || "";
-        document.getElementById("hasta").textContent = permiso.hasta || "";
-        document.getElementById("horaini").textContent = permiso.horaini || "";
-        document.getElementById("horafin").textContent = permiso.horafin || "";
-        document.getElementById("notas").textContent = permiso.notas || "";
-      } else {
-        alert("Permiso no encontrado");
-      }
-    })
-    .catch(() => {
-      alert("No se pudo cargar permisos.json");
-    });
+fetch("permisos.json")
+.then(res => res.json())
+.then(data => {
+
+const permiso = data[id];
+
+if(permiso){
+
+document.getElementById("numero").textContent = permiso.numero || "";
+document.getElementById("fecha").textContent = permiso.fecha || "";
+document.getElementById("solicitante").textContent = permiso.solicitante || "";
+document.getElementById("empresa").textContent = permiso.empresa || "";
+document.getElementById("domicilio").textContent = permiso.domicilio || "";
+document.getElementById("operaciones").textContent = permiso.operaciones || "";
+document.getElementById("dominio").textContent = permiso.dominio || "";
+document.getElementById("vehiculo").textContent = permiso.vehiculo || "";
+document.getElementById("mano").textContent = permiso.mano || "";
+document.getElementById("peso").textContent = permiso.peso || "";
+document.getElementById("zona").textContent = permiso.zona || "";
+document.getElementById("desde").textContent = permiso.desde || "";
+document.getElementById("hasta").textContent = permiso.hasta || "";
+document.getElementById("horaini").textContent = permiso.horaini || "";
+document.getElementById("horafin").textContent = permiso.horafin || "";
+document.getElementById("notas").textContent = permiso.notas || "";
+
 }
+
+});
+
+}
+
 </script>
   
 </body>
 </html>
+
 
 
 
