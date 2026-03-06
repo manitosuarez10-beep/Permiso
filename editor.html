@@ -114,7 +114,7 @@
         },
         cornersSquareOptions: {
           color: "#000000",
-          type: "extra-rounded"
+          type: "square"
         },
         cornersDotOptions: {
           color: "#000000",
@@ -233,7 +233,7 @@
         : "https://municipalidadsmt.github.io/Permiso";
 
       const qrPdf = document.getElementById("qrPDF");
-      crearQrOficial(qrPdf, linkPermiso, 300);
+      crearQrOficial(qrPdf, linkPermiso, 240);
 
       const element = document.getElementById("permisoPDF");
       element.style.visibility = "visible";
