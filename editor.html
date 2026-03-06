@@ -3,89 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Generador de Permisos</title>
 
-<style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
+<style>
 body{
-font-family:Arial;
-background:#f2f2f2;
-padding:30px;
+  font-family:Arial, sans-serif;
+  background:#f2f2f2;
+  padding:30px;
+  margin:0;
 }
 
 .container{
-max-width:500px;
-margin:auto;
-background:white;
-padding:25px;
-border-radius:8px;
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:25px;
+  border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+h2{
+  text-align:center;
+  margin-top:0;
 }
 
 input{
-width:100%;
-padding:10px;
-margin-bottom:10px;
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  font-size:16px;
+  box-sizing:border-box;
 }
 
 button{
-width:100%;
-padding:12px;
-background:#1976d2;
-color:white;
-border:none;
-font-size:16px;
-border-radius:5px;
-cursor:pointer;
+  width:100%;
+  padding:12px;
+  background:#1976d2;
+  color:white;
+  border:none;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+button:hover{
+  background:#125ea8;
 }
 
 .resultado{
-margin-top:20px;
-word-break:break-all;
+  margin-top:20px;
+  word-break:break-all;
 }
 
+#qrcode{
+  margin-top:20px;
+  text-align:center;
+}
 </style>
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  
 </head>
-
 <body>
 
 <div class="container">
 
-<h2>Generador de Permisos</h2>
+  <h2>Generador de Permisos</h2>
 
-<input id="numero" placeholder="Nro de solicitud">
-<input id="fecha" placeholder="Fecha de solicitud">
-<input id="solicitante" placeholder="Solicitante">
-<input id="empresa" placeholder="Empresa">
-<input id="domicilio" placeholder="Domicilio">
-<input id="operaciones" placeholder="Cantidad de operaciones">
-<input id="dominio" placeholder="Dominio">
-<input id="vehiculo" placeholder="Vehiculo">
-<input id="mano" placeholder="Mano">
-<input id="peso" placeholder="Peso">
-<input id="zona" placeholder="Zona">
-<input id="desde" placeholder="Fecha desde">
-<input id="hasta" placeholder="Fecha hasta">
-<input id="horaini" placeholder="Hora desde">
-<input id="horafin" placeholder="Hora hasta">
-<input id="notas" placeholder="Observaciones">
+  <input id="numero" placeholder="Nro de solicitud">
+  <input id="fecha" placeholder="Fecha de solicitud">
+  <input id="permiso" placeholder="Permiso">
+  <input id="solicitante" placeholder="Solicitante">
+  <input id="empresa" placeholder="Empresa">
+  <input id="domicilio" placeholder="Domicilio">
+  <input id="operaciones" placeholder="Cantidad de operaciones">
+  <input id="dominio" placeholder="Dominio">
+  <input id="vehiculo" placeholder="Vehículo">
+  <input id="mano" placeholder="Mano">
+  <input id="peso" placeholder="Peso">
+  <input id="zona" placeholder="Zona">
+  <input id="desde" placeholder="Fecha desde">
+  <input id="hasta" placeholder="Fecha hasta">
+  <input id="horaini" placeholder="Hora desde">
+  <input id="horafin" placeholder="Hora hasta">
+  <input id="notas" placeholder="Observaciones">
 
-<button onclick="generar()">Generar Permiso</button>
+  <button onclick="generar()">Generar Permiso</button>
+  <button onclick="descargarPDF()">Descargar PDF</button>
 
-<div class="resultado" id="resultado"></div>
-  
-<div id="qrcode" style="margin-top:20px;text-align:center;"></div>
-  
+  <div class="resultado" id="resultado"></div>
+  <div id="qrcode"></div>
+
 </div>
 
 <script>
-
 function generar(){
 
-<script>
+  let numero = document.getElementById("numero").value;
+  let fecha = document.getElementById("fecha").value;
+  let permiso = document.getElementById("permiso").value;
+  let solicitante = document.getElementById("solicitante").value;
+  let empresa = document.getElementById("empresa").value;
+  let domicilio = document.getElementById("domicilio").value;
+  let operaciones = document.getElementById("operaciones").value;
+  let dominio = document.getElementById("dominio").value;
+  let vehiculo = document.getElementById("vehiculo").value;
+  let mano = document.getElementById("mano").value;
+  let peso = document.getElementById("peso").value;
+  let zona = document.getElementById("zona").value;
+  let desde = document.getElementById("desde").value;
+  let hasta = document.getElementById("hasta").value;
+  let horaini = document.getElementById("horaini").value;
+  let horafin = document.getElementById("horafin").value;
+  let notas = document.getElementById("notas").value;
+
+  let link =
+    "https://municipalidadsmt.github.io/Permiso?" +
+    "numero=" + encodeURIComponent(numero) +
+    "&fecha=" + encodeURIComponent(fecha) +
+    "&permiso=" + encodeURIComponent(permiso) +
+    "&solicitante=" + encodeURIComponent(solicitante) +
+    "&empresa=" + encodeURIComponent(empresa) +
+    "&domicilio=" + encodeURIComponent(domicilio) +
+    "&operaciones=" + encodeURIComponent(operaciones) +
+    "&dominio=" + encodeURIComponent(dominio) +
+    "&vehiculo=" + encodeURIComponent(vehiculo) +
+    "&mano=" + encodeURIComponent(mano) +
+    "&peso=" + encodeURIComponent(peso) +
+    "&zona=" + encodeURIComponent(zona) +
+    "&desde=" + encodeURIComponent(desde) +
+    "&hasta=" + encodeURIComponent(hasta) +
+    "&horaini=" + encodeURIComponent(horaini) +
+    "&horafin=" + encodeURIComponent(horafin) +
+    "&notas=" + encodeURIComponent(notas);
+
+  document.getElementById("resultado").innerHTML =
+    "<b>Link del permiso:</b><br><a id='resultadoLink' href='" + link + "' target='_blank'>" + link + "</a>";
+
+  document.getElementById("qrcode").innerHTML = "";
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: link,
+    width: 200,
+    height: 200
+  });
+}
+
 function descargarPDF(){
 
   document.getElementById("pdfSolicitud").innerText =
@@ -146,7 +210,7 @@ function descargarPDF(){
 
   const linkPermiso = document.getElementById("resultadoLink")
     ? document.getElementById("resultadoLink").href
-    : window.location.href;
+    : "https://municipalidadsmt.github.io/Permiso";
 
   new QRCode(qr, {
     text: linkPermiso,
@@ -171,46 +235,8 @@ function descargarPDF(){
 }
 </script>
 
-let link =
-"https://municipalidadsmt.github.io/Permiso?" +
-"numero="+numero+
-"&fecha="+fecha+
-"&solicitante="+solicitante+
-"&empresa="+empresa+
-"&domicilio="+domicilio+
-"&operaciones="+operaciones+
-"&dominio="+dominio+
-"&vehiculo="+vehiculo+
-"&mano="+mano+
-"&peso="+peso+
-"&zona="+zona+
-"&desde="+desde+
-"&hasta="+hasta+
-"&horaini="+horaini+
-"&horafin="+horafin+
-"&notas="+notas;
-
-document.getElementById("resultado").innerHTML =
-  "<b>Link del permiso:</b><br><a id='resultadoLink' href='"+link+"' target='_blank'>"+link+"</a>";
-
-document.getElementById("qrcode").innerHTML = "";
-
-new QRCode(document.getElementById("qrcode"), {
-text: link,
-width: 200,
-height: 200
-});
-}
-
-</script>
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  
-</script>  
 <div id="permisoPDF" style="width:794px; min-height:1123px; background:#ffffff; color:#111; padding:18px 18px 28px 18px; box-sizing:border-box; font-family:Arial, sans-serif; display:none;">
 
-  <!-- Encabezado -->
   <div style="display:flex; align-items:flex-start; gap:14px;">
     <img src="logo.png" style="width:58px; height:auto;">
     
@@ -224,10 +250,8 @@ height: 200
     </div>
   </div>
 
-  <!-- Línea -->
   <div style="border-top:2px solid #444; margin-top:8px;"></div>
 
-  <!-- Cabecera datos -->
   <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:bold; margin-top:8px;">
     <div>Nro. de Solicitud: <span id="pdfSolicitud"></span></div>
     <div>Fecha de Solicitud: <span id="pdfFecha"></span></div>
@@ -235,7 +259,6 @@ height: 200
 
   <div style="border-top:1px solid #444; margin-top:6px; margin-bottom:10px;"></div>
 
-  <!-- Cuerpo -->
   <div style="font-size:14px; line-height:1.45;">
     <div>Permiso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="pdfPermiso"></span></div>
     <div>Solicitante&nbsp;&nbsp;: <span id="pdfSolicitante"></span></div>
@@ -257,7 +280,6 @@ height: 200
     </div>
   </div>
 
-  <!-- Bloque importante -->
   <div style="border-top:1px solid #444; margin-top:18px; padding-top:8px; font-size:13px; font-weight:bold; line-height:1.3;">
     Importe: Prohibido estacionar en ochava, garage, parada de omnibus, taxis y/o espacios reservados.
     El recurrente se hace responsable en lo civil y penal por los daños ocasionados contra terceros,
@@ -266,7 +288,6 @@ height: 200
 
   <div style="border-top:1px solid #444; margin-top:8px;"></div>
 
-  <!-- Pie -->
   <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:20px;">
     <div id="qrPDF"></div>
 
@@ -285,6 +306,6 @@ height: 200
   </div>
 
 </div>
-</div>  
+
 </body>
 </html>
