@@ -217,11 +217,14 @@
         ? document.getElementById("resultadoLink").href
         : "https://municipalidadsmt.github.io/Permiso";
 
-      new QRCode(qr, {
-        text: linkPermiso,
-        width: 120,
-        height: 120
-      });
+     new QRCode(qr, {
+  text: linkPermiso,
+  width: 150,
+  height: 150,
+  colorDark: "#000000",
+  colorLight: "#ffffff",
+  correctLevel: QRCode.CorrectLevel.H
+});
 
       const element = document.getElementById("permisoPDF");
       element.style.visibility = "visible";
@@ -324,7 +327,11 @@
     <div style="border-top:1px solid #444; margin-top:8px;"></div>
 
     <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:20px;">
-      <div id="qrPDF"></div>
+     <div id="qrPDF" style="
+background:#ffffff;
+padding:8px;
+display:inline-block;
+"></div>
 
       <div style="text-align:center; width:240px;">
         <img src="firma.png" style="width:150px; opacity:0.9; display:block; margin:0 auto 2px auto;">
