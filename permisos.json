@@ -1,0 +1,21 @@
+{
+  "42": {
+    "numero": "42",
+    "fecha": "05/03/2026",
+    "permiso": "CARGA Y DESCARGA",
+    "solicitante": "YA MUDARTE",
+    "empresa": "YA MUDARTE",
+    "domicilio": "CHACABUCO 600",
+    "operaciones": "1",
+    "dominio": "PCR 448",
+    "vehiculo": "CAMION",
+    "mano": "DERECHA",
+    "peso": "DE 3000 KG HASTA 6000 KG",
+    "zona": "ZONA II",
+    "desde": "07/03/2026",
+    "hasta": "07/03/2026",
+    "horaini": "14:00:00",
+    "horafin": "17:30:00",
+    "notas": "SIN OBSERVACIONES"
+  }
+}
