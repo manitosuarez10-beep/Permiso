@@ -45,7 +45,9 @@ word-break:break-all;
 }
 
 </style>
-
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  
 </head>
 
 <body>
@@ -74,7 +76,9 @@ word-break:break-all;
 <button onclick="generar()">Generar Permiso</button>
 
 <div class="resultado" id="resultado"></div>
-
+  
+<div id="qrcode" style="margin-top:20px;text-align:center;"></div>
+  
 </div>
 
 <script>
@@ -120,6 +124,13 @@ let link =
 document.getElementById("resultado").innerHTML =
 "<b>Link del permiso:</b><br><a href='"+link+"' target='_blank'>"+link+"</a>";
 
+document.getElementById("qrcode").innerHTML = "";
+
+new QRCode(document.getElementById("qrcode"), {
+text: link,
+width: 200,
+height: 200
+});
 }
 
 </script>
