@@ -243,7 +243,6 @@
     async function guardarEnPlanilla(){
 
 const data = {
-
 id: document.getElementById("numero").value,
 numero: document.getElementById("numero").value,
 fecha: document.getElementById("fecha").value,
@@ -262,32 +261,33 @@ hasta: document.getElementById("hasta").value,
 horaini: document.getElementById("horaini").value,
 horafin: document.getElementById("horafin").value,
 notas: document.getElementById("notas").value
-
 };
 
 const urlScript = "https://script.google.com/macros/s/AKfycbzYhNsAjaYI4eYTjDgXrAIZOhSNGvhDz8gQL9b-x6hK3dB_4Tva3KCgNb-7WC_vgTz-/exec";
 
-fetch(urlScript,{
+try {
+
+const res = await fetch(urlScript,{
 method:"POST",
 headers:{
 "Content-Type":"text/plain;charset=utf-8"
 },
 body:JSON.stringify(data)
-})
-.then(res => res.text())
-.then(res => {
-
-alert("Permiso guardado en la planilla");
-
-})
-.catch(err => {
-
-alert("Error al guardar");
-
 });
 
+const texto = await res.text();
+console.log("RESPUESTA APPS SCRIPT:", texto);
+
+alert("Respuesta del servidor: " + texto);
+
+} catch(err) {
+
+console.error("ERROR COMPLETO:", err);
+alert("Error al guardar: " + err);
+
 }
-    
+
+}
     async function agregarPermisoJSON() {
       const numero = document.getElementById("numero").value.trim();
 
