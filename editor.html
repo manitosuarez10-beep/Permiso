@@ -93,8 +93,14 @@
 
     <input id="numero" placeholder="Nro de solicitud">
     <input id="fecha" placeholder="Fecha de solicitud">
-    <input id="permiso" placeholder="Permiso">
 
+<input id="permiso" list="listaPermisos" placeholder="Permiso">
+<datalist id="listaPermisos">
+  <option value="CIRCULACION">
+  <option value="CARGA Y DESCARGA">
+  <option value="MUDANZA">
+</datalist>
+  
 <input id="solicitante" list="listaSolicitantes" placeholder="Solicitante">
 <datalist id="listaSolicitantes">
   <option value="TUCUMAN, FLETES">
@@ -111,10 +117,24 @@
   
     <input id="domicilio" placeholder="Domicilio">
     <input id="operaciones" placeholder="Cantidad de operaciones">
-    <input id="dominio" placeholder="Dominio">
+  
+<input id="dominio" list="listaDominios" placeholder="Dominio">
+<datalist id="listaDominios">
+  <option value="APK 256">
+  <option value="HOC 038">
+  <option value="PCR 448">
+  <option value="OKJ 436">
+</datalist>
+  
     <input id="vehiculo" placeholder="Vehículo">
     <input id="mano" placeholder="Mano">
-    <input id="peso" placeholder="Peso">
+
+<input id="peso" list="listaPesos" placeholder="Peso">
+<datalist id="listaPesos">
+  <option value="DE 3000 KG HASTA 6000 KG">
+  <option value="MENOS DE 3000 KG">
+</datalist>
+  
     <input id="zona" placeholder="Zona">
     <input id="desde" placeholder="Fecha desde">
     <input id="hasta" placeholder="Fecha hasta">
